@@ -1,17 +1,8 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
-
-#include "Blueplinth.h"
-#include "WinRT.h"
-#include "GuidHelper.h"
 #include "BluetoothAddress.h"
-#include "GuidOverloads.h"
-
 #include "BlueplinthLibrary.generated.h"
-
-using namespace winrt::Windows::Devices;
-using namespace winrt::Windows::Foundation;
 
 UENUM(BlueprintType)
 enum class ESeparatorType : uint8

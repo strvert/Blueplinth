@@ -3,7 +3,7 @@
 #include "CoreMinimal.h"
 
 #include "BluetoothAddress.h"
-#include "WinRT.h"
+#include "Windows/WinRT.h"
 #include "BluetoothConnectionStatus.h"
 #include "BLEDevice.generated.h"
 

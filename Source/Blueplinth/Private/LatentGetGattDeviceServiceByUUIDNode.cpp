@@ -2,8 +2,8 @@
 
 #include "GuidHelper.h"
 #include "GattDeviceService.h"
-#include "WinRT.h"
-#include "GuidOverloads.h"
+#include "Windows/WinRT.h"
+#include "PlatformGuidCastOverloads.h"
 
 ULatentGetGattDeviceServiceByUuid::ULatentGetGattDeviceServiceByUuid(
 	const FObjectInitializer& ObjectInitializer)

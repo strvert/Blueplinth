@@ -2,11 +2,10 @@
 
 #include "CoreMinimal.h"
 
-#include "BluetoothAddress.h"
-#include "WinRT.h"
-#include "DeviceMatcherBase.h"
+#include "Windows/WinRT.h"
+#include "PlatformGuidCastOverloads.h"
 #include "GuidHelper.h"
-#include "GuidOverloads.h"
+#include "DeviceMatcherBase.h"
 #include "UuidDeviceMatcher.generated.h"
 
 UCLASS(BlueprintType)

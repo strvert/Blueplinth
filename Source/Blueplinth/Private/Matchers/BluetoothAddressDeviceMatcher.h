@@ -2,8 +2,7 @@
 
 #include "CoreMinimal.h"
 
-#include "BlueplinthLibrary.h"
-#include "WinRT.h"
+#include "Windows/WinRT.h"
 #include "DeviceMatcherBase.h"
 #include "BluetoothAddress.h"
 #include "BluetoothAddressDeviceMatcher.generated.h"

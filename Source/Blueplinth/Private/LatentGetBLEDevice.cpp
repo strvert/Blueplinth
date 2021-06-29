@@ -1,7 +1,5 @@
 ﻿#include "LatentGetBLEDevice.h"
-#include "GuidHelper.h"
-#include "GuidOverloads.h"
-#include "WinRT.h"
+#include "Windows/WinRT.h"
 
 using namespace winrt::Windows::Devices;
 using namespace winrt::Windows::Foundation;

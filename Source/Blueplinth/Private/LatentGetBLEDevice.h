@@ -5,8 +5,7 @@
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "BLEDevice.h"
 #include "Matchers/DeviceMatcherBase.h"
-#include "BluetoothAddress.h"
-#include "WinRT.h"
+#include "Windows/WinRT.h"
 #include "LatentGetBleDevice.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSucceededGetBLEDevice, class UBLEDevice*, BLEDevice);

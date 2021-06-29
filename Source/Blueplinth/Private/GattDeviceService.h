@@ -4,10 +4,9 @@
 
 #include "BluetoothAddress.h"
 #include "GuidHelper.h"
-#include "GuidOverloads.h"
-#include "WinRT.h"
-#include "ByteUtils.h"
-#include "Kismet/ImportanceSamplingLibrary.h"
+
+#include "Windows/WinRT.h"
+#include "PlatformGuidCastOverloads.h"
 
 #include "GattDeviceService.generated.h"
 
