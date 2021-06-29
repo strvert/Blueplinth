@@ -16,7 +16,7 @@ ULatentGetGattDeviceServiceByUuid* ULatentGetGattDeviceServiceByUuid::LatentGetG
 {
 	ULatentGetGattDeviceServiceByUuid* Node = NewObject<ULatentGetGattDeviceServiceByUuid>();
 	Node->RegisterWithGameInstance(WorldContextObject);
-	Node->ServiceUuid = BPLGuidHelper::GuidCast<winrt::guid>(InServiceGuid);
+	Node->ServiceUuid = BplGuidHelper::GuidCast<winrt::guid>(InServiceGuid);
 	Node->Timeout = InTimeout;
 	return Node;
 }

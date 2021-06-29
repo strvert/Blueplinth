@@ -7,39 +7,18 @@ using namespace winrt::Windows::Devices;
 using namespace winrt::Windows::Foundation;
 using namespace Bluetooth::Advertisement;
 
-bool ULatentGetBLEDevice::FUuidMatcher::Check(const FAdvEventArgs& Args)
+ULatentGetBLEDevice* ULatentGetBLEDevice::LatentGetBLEDevice(UObject* InWorldContextObject,
+                                                             UDeviceMatcherBase* InDeviceMatcher,
+                                                             const float InTimeout)
 {
-	for (auto&& Uuid : Args.Advertisement().ServiceUuids())
-	{
-		if (ServiceUuid == Uuid)
-		{
-			return true;
-		}
-	}
-	return false;
+		ULatentGetBLEDevice* Node = NewObject<ULatentGetBLEDevice>();
+		Node->RegisterWithGameInstance(InWorldContextObject);
+		Node->Timeout = InTimeout;
+		check(InDeviceMatcher);
+		Node->Matcher = InDeviceMatcher;
+		return Node;
 }
 
-bool ULatentGetBLEDevice::FBluetoothAddressMatcher::Check(const FAdvEventArgs& Args)
-{
-	return Args.BluetoothAddress() == FBluetoothAddress::ToUint64(BluetoothAddress);
-}
-
-ULatentGetBLEDevice* ULatentGetBLEDevice::LatentGetBLEDeviceByServiceUuid(UObject* WorldContextObject,
-                                                                          const FGuid& InServiceUuid,
-                                                                          const float InTimeout)
-{
-	return ConstructNode(WorldContextObject, InTimeout,
-	                     MakeUnique<FUuidMatcher>(BPLGuidHelper::GuidCast<winrt::guid>(InServiceUuid)));
-}
-
-ULatentGetBLEDevice* ULatentGetBLEDevice::LatentGetBLEDeviceByBluetoothAddress(UObject* WorldContextObject,
-                                                                               const FBluetoothAddress&
-                                                                               InBluetoothAddress,
-                                                                               const float InTimeout)
-{
-	return ConstructNode(WorldContextObject, InTimeout,
-	                     MakeUnique<FBluetoothAddressMatcher>(InBluetoothAddress));
-}
 
 void ULatentGetBLEDevice::Activate()
 {
@@ -58,6 +37,7 @@ void ULatentGetBLEDevice::Activate()
 				if (const auto BLEDevice = BleDeviceSender.get(); BLEDevice)
 				{
 					const auto BLEDeviceObj = NewObject<UBLEDevice>();
+					BLEDeviceObj->WinRTBLEDevice = BLEDevice;
 					Succeeded.Broadcast(BLEDeviceObj);
 				}
 				else

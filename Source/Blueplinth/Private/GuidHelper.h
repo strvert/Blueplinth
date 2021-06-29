@@ -2,7 +2,7 @@
 
 #include "ByteUtils.h"
 
-namespace BPLGuidHelper
+namespace BplGuidHelper
 {
 	namespace Impl
 	{

@@ -18,7 +18,7 @@ class UGattDeviceService final : public UObject
 
 private:
 	using FGattDeviceService = winrt::Windows::Devices::Bluetooth::GenericAttributeProfile::GattDeviceService;
-	FGattDeviceService DeviceService{nullptr, winrt::take_ownership_from_abi};
+	FGattDeviceService DeviceService = FGattDeviceService(nullptr);
 	FString DeviceName;
 	FBluetoothAddress BluetoothAddress;
 
@@ -30,7 +30,7 @@ public:
 	UFUNCTION(BlueprintPure, Category="Blueplinth")
 	FGuid GetServiceUuid() const
 	{
-		return BPLGuidHelper::GuidCast<FGuid>(DeviceService.Uuid());
+		return BplGuidHelper::GuidCast<FGuid>(DeviceService.Uuid());
 	}
 
 	UFUNCTION(BlueprintPure, Category="Blueplinth")
